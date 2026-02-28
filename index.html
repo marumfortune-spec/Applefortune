@@ -34,4 +34,124 @@
     }
     .pill{
       padding:8px 10px; border-radius:999px;
-      background: rgba(255,255,255,.
+      background: rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      font-size:14px;
+    }
+
+    .grid{
+      display:flex; flex-direction:column; gap:10px;
+      padding:10px;
+    }
+    .row{
+      display:flex; justify-content:center; gap:10px;
+    }
+    .cell{
+      width:56px; height:56px; border-radius:50%;
+      background: radial-gradient(circle at 30% 30%, #ffcc9a, #ff6b2b);
+      border:2px solid rgba(255,255,255,.20);
+      box-shadow: 0 6px 16px rgba(0,0,0,.35);
+      display:flex; align-items:center; justify-content:center;
+      cursor:pointer;
+      user-select:none;
+      transition: transform .08s ease;
+      position:relative;
+    }
+    .cell:active{transform: scale(.97);}
+    .cell.disabled{opacity:.45; cursor:not-allowed; filter: grayscale(.2);}
+    .cell.revealedWin::after{content:"🍎"; font-size:26px; position:absolute;}
+    .cell.revealedLose{background: radial-gradient(circle at 30% 30%, #9aa6ff, #3644ff);}
+    .cell.revealedLose::after{content:"💣"; font-size:24px; position:absolute;}
+
+    .controls{
+      display:flex; gap:10px; flex-wrap:wrap; justify-content:center;
+      margin-top:10px;
+    }
+    button{
+      padding:12px 16px; border-radius:14px; border:0;
+      background:#2b62ff; color:#fff; font-size:16px; cursor:pointer;
+      min-width:110px;
+    }
+    button.secondary{background: rgba(255,255,255,.10); border:1px solid rgba(255,255,255,.18);}
+    button.danger{background:#ff2b2b;}
+    button:disabled{opacity:.5; cursor:not-allowed;}
+
+    .betLine{
+      display:flex; gap:10px; justify-content:center; align-items:center; flex-wrap:wrap;
+      margin-top:10px;
+    }
+    input{
+      width:160px; padding:12px; border-radius:14px; border:1px solid rgba(255,255,255,.2);
+      background: rgba(0,0,0,.25); color:#fff; font-size:16px; text-align:center;
+    }
+    .big{margin-top:10px;font-size:22px;font-weight:700;}
+    .msg{margin-top:8px; min-height:22px; opacity:.9;}
+
+    /* ===== Login overlay ===== */
+    #loginOverlay{
+      position:fixed; inset:0;
+      background: rgba(0,0,0,.72);
+      display:flex; align-items:center; justify-content:center;
+      padding:14px;
+      z-index: 9999;
+    }
+    #loginCard{
+      width:min(520px, 100%);
+      background: rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.14);
+      border-radius:18px;
+      padding:16px;
+      text-align:left;
+      box-sizing:border-box;
+    }
+    #loginCard h2{margin:0 0 8px; text-align:center}
+    .loginRow{display:flex; gap:10px; flex-wrap:wrap;}
+    .loginRow > div{flex:1 1 200px;}
+    .hint{opacity:.85; font-size:13px; margin-top:6px}
+    #loginMsg{min-height:22px; margin-top:10px; color:#ffd0d0}
+    .smallPill{
+      display:inline-block; padding:6px 10px; border-radius:999px;
+      background: rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.16);
+      font-size:13px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- LOGIN -->
+  <div id="loginOverlay">
+    <div id="loginCard">
+      <h2>🔒 Connexion</h2>
+      <div style="text-align:center; margin-bottom:10px;">
+        <span class="smallPill">Créateur : <b>marum01</b></span>
+      </div>
+
+      <div class="loginRow">
+        <div>
+          <label for="userId">ID (10 chiffres)</label>
+          <input id="userId" type="text" inputmode="numeric" placeholder="Ex: 0123456789" maxlength="10">
+          <div class="hint">⚠️ Doit être exactement 10 chiffres.</div>
+        </div>
+        <div>
+          <label for="pass">Mot de passe</label>
+          <input id="pass" type="password" placeholder="Mot de passe">
+          <div class="hint">Mot de passe = <b>marum01</b></div>
+        </div>
+      </div>
+
+      <div class="controls" style="justify-content:center; margin-top:12px;">
+        <button id="btnLogin">Entrer</button>
+        <button class="secondary" id="btnClear">Effacer</button>
+      </div>
+
+      <div id="loginMsg"></div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div id="debug"></div>
+
+    <h1>🍎 Apple of Fortune</h1>
+    <div class="sub">
+      Créé p
