@@ -1,37 +1,34 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Apple of Fortune - marum01</title>
-
+  <title>Apple Fortune</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body{
-      margin:0; font-family: Arial, sans-serif;
-      background: #0b1020; color:#fff; text-align:center;
-      padding:14px;
+      background:black;
+      color:white;
+      text-align:center;
+      font-family:Arial;
+      padding-top:50px;
     }
-    .wrap{max-width:520px;margin:0 auto;}
-    h1{margin:10px 0 8px;font-size:28px}
-    .sub{opacity:.85;margin-bottom:10px}
+    button{
+      padding:15px 25px;
+      font-size:18px;
+      background:red;
+      color:white;
+      border:none;
+      border-radius:10px;
+    }
+  </style>
+</head>
+<body>
 
-    #debug{
-      display:none; text-align:left; white-space:pre-wrap;
-      background:#300; padding:10px; border-radius:12px; margin:10px 0;
-    }
+<h1>🍎 Apple Fortune</h1>
+<p>Bienvenue dans ton application !</p>
 
-    .panel{
-      background: rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:16px;
-      padding:12px;
-      margin:12px 0;
-    }
+<button onclick="alert('Bravo ça marche !')">
+  Tester
+</button>
 
-    .topRow{
-      display:flex; gap:10px; justify-content:space-between; flex-wrap:wrap;
-      align-items:center;
-    }
-    .pill{
-      padding:8px 10px; border-radius:999px;
-      background: rgba(255,255,255,.
+</body>
+</html>
